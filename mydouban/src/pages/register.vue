@@ -2,24 +2,106 @@
   <div class="bgbox">
     <p class="wellcom">欢迎加入豆瓣</p>
     <div class="regbox">
-      <input type="email" name class="inpa" placeholder="邮箱" />
-      <br />
-      <input type="password" name placeholder="密码" class="inpm" />
-      <span></span>
-      <br />
-      <input type="text" name class="inpa" placeholder="用户名" />
-      <br />
-      <input type="button" value="立即注册" class="btn" />
+      <inp :txt="data[0]" @mite="mite1"></inp>
+      <inp :txt="data[1]" @mite="mite2">
+        <span @click="fun()" :class="bool?'red':''">eye</span>
+      </inp>
+      <inp :txt="data[2]" @mite="mite3"></inp>
+      <div @click="sub()">
+        <btn :text="data[3]" :bg="bg"></btn>
+      </div>
     </div>
     <p class="regXieYi">点击「注册」代表你已阅读并同意用户使用协议</p>
     <router-link to="/home">下载豆瓣App</router-link>
   </div>
 </template>
 <script>
-export default {};
+import inp from "../components/login/inp";
+import btn from "../components/login/btn";
+export default {
+  components: {
+    inp,
+    btn
+  },
+  data() {
+    return {
+      bool: false,
+      bg: false,
+      email: "",
+      pwd: "",
+      uname: "",
+      data: [
+        { title: "邮箱", type: "email", names: "email" },
+        { title: "密码", type: "password", names: "pwd" },
+        { title: "用户名", type: "text", names: "uname" },
+        { title: "立即注册" }
+      ]
+    };
+  },
+  methods: {
+    fun() {
+      this.bool = !this.bool;
+      if (this.bool) {
+        this.data[1].type = "text";
+      } else {
+        this.data[1].type = "password";
+      }
+    },
+    mite1(val) {
+      this.email = val;
+    },
+    mite2(val) {
+      this.pwd = val;
+    },
+    mite3(val) {
+      this.uname = val;
+    },
+    sub() {
+      if (this.email == "" || this.pwd == "" || this.uname == "") {
+        alert("输入不能为空");
+      } else {
+        this.data[3].title = "正在提交...";
+        this.bg = true;
+        let param = new URLSearchParams();
+        param.append("email", this.email);
+        param.append("pwd", this.pwd);
+        param.append("uname", this.uname);
+        this.axios({
+          url: "http://10.35.162.160:3000/post",
+          method: "post",
+          data: param
+        }).then(
+          ok => {
+            if (ok.data.linkid == 1) {
+              alert("注册成功");
+              this.$router.push("/login");
+            } else if (ok.data.linkid == 2) {
+              alert("该邮箱已注册过");
+            } else if (ok.data.linkid == 0) {
+              alert("注册失败");
+            } else if (ok.data.linkid == 3) {
+              alert("连接超时，请稍后再试");
+            }
+          },
+          err => {}
+        );
+      }
+    }
+  },
+  mounted() {
+    document.getElementsByClassName("inpa")[1].style.cssText = `
+                border:none;
+                border-left:1px solid #cccccc;
+                 width: 2.5rem;
+    `;
+  }
+};
 </script>
 <style scoped>
-.wellcom{
+.red {
+  color: #42bd56;
+}
+.wellcom {
   color: #42bd56;
   font-size: 0.34rem;
   margin: 0.3rem 0 0.46rem;
@@ -28,60 +110,23 @@ export default {};
 .regbox {
   padding: 0 0.14rem;
 }
-input::placeholder{
-  color:rgb(202, 206, 206);
-  font-size:.13rem;
-}
-.inpa {
-  width: 2.9rem;
-  height: 0.45rem;
-  outline: none;
-  border: 1px solid #cccccc;
-  box-sizing: border-box;
-  padding: 0 0.08rem;
-  border-top-left-radius: 0.03rem;
-  border-top-right-radius: 0.03rem;
-}
-.inpm {
-  width: 2.5rem;
-  height: 0.45rem;
-  border: none;
-  outline: none;
-  border-left: 1px solid #cccccc;
-  box-sizing: border-box;
-  padding: 0 0.08rem;
-  border-top-left-radius: 0.03rem;
-  border-top-right-radius: 0.03rem;
-  color: #aaaaaa;
-}
 span {
   display: inline-block;
   box-sizing: border-box;
   border-right: 1px solid #cccccc;
   width: 0.35rem;
   height: 0.45rem;
+  line-height: 0.45rem;
   vertical-align: middle;
 }
-.btn {
-  width: 2.9rem;
-  height: 0.44rem;
-  outline: none;
-  border: none;
-  box-sizing: border-box;
-  background-color: #42bd56;
-  color: white;
-  font-size: 0.15rem;
-  margin-top: 0.1rem;
-  border-radius: .04rem;
+.regXieYi {
+  font-size: 0.12rem;
+  color: #aaaaaa;
+  margin: 0.18rem 0.3rem 0.35rem;
 }
-.regXieYi{
-    font-size: .12rem;
-    color: #aaaaaa;
-    margin: .18rem .3rem .35rem;
-}
-a{
-    font-size: .13rem;
-    color:#42bd56;
-    margin: 0 1.15rem;
+a {
+  font-size: 0.13rem;
+  color: #42bd56;
+  margin: 0 1.15rem;
 }
 </style>
