@@ -18,7 +18,7 @@ export default {};
 <style scoped>
 div {
   width: 100%;
-  height: 0.48rem;
+  height: 0.5rem;
   border-bottom: 1px solid #eeeeee;
 }
 a {

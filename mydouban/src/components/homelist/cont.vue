@@ -7,4 +7,10 @@
 export default {};
 </script>
 <style scoped>
+p {
+  width: 1.8rem;
+  font-size: 0.1rem;
+  margin-top: 0.12rem;
+  color: #aaaaaa;
+}
 </style>

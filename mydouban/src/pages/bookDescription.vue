@@ -1,19 +1,13 @@
 <template>
   <div>
     <top></top>
-    <qingDen></qingDen>
-    <biggp></biggp>
   </div>
 </template>
 <script>
 import top from "../components/header/top";
-import qingDen from "../components/qingDen";
-import biggp from "../components/group/biggp";
 export default {
   components: {
-    top,
-    qingDen,
-    biggp
+    top
   }
 };
 </script>

@@ -9,12 +9,12 @@ import radio from '../pages/radio'
 import book from '../pages/book'
 import group from '../pages/group'
 import register from '../pages/register'
+import bookDescription from '../pages/bookdescription'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/home',
       name: 'home',
       component: home
@@ -60,8 +60,13 @@ export default new Router({
       component: register
     },
     {
-      path:"/*",
-      redirect:"/home"
+      path: '/bookdescription',
+      name: 'bookDescription',
+      component: bookDescription
+    },
+    {
+      path: "/*",
+      redirect: "/home"
     }
   ]
 })
