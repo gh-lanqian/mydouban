@@ -2,20 +2,18 @@
   <div class="home">
     <top></top>
     <div class="hmone">
-      <nava></nava>
-      <nava></nava>
-      <nava></nava>
-      <nava></nava>
+      <nava v-for="(v,i) in arr" :key="i" :title="v.title" :tourl="v.tourl"></nava>
     </div>
     <div class="hmtwo">
-      <hmlist>
-        <cont slot="slota"></cont>
-        <btcon slot="slotb"></btcon>
-      </hmlist>
-      <hmlist>
-        <cont slot="slota"></cont>
-        <btcon slot="slotb"></btcon>
-      </hmlist>
+      <hmlist
+        v-for="(v,i) in arra"
+        :key="i"
+        :title="v.title"
+        :imgurl="v.image"
+        :lf="v.category_name"
+        :rt="v.tags"
+        :cont="conts[i]"
+      ></hmlist>
     </div>
   </div>
 </template>
@@ -23,15 +21,40 @@
 import top from "../components/header/top";
 import nava from "../components/nav/nava";
 import hmlist from "../components/homelist/hmlist";
-import cont from "../components/homelist/cont";
-import btcon from "../components/homelist/btcon";
 export default {
   components: {
     top,
     nava,
-    hmlist,
-    cont,
-    btcon
+    hmlist
+  },
+  data() {
+    return {
+      arr: [],
+      arra: []
+    };
+  },
+  computed: {
+    conts() {
+      var data = [];
+      for (var i in this.arra) {
+        data.push(this.arra[i].content.split("<")[0].slice(0, 50));
+      }
+      return data;
+    }
+  },
+  created() {
+    this.axios({
+      url: "/nava",
+      method: "get"
+    }).then(ok => {
+      this.arr = ok.data;
+    });
+    this.axios({
+      url: "/shouye",
+      method: "get"
+    }).then(ok => {
+      this.arra = ok.data;
+    });
   }
 };
 </script>

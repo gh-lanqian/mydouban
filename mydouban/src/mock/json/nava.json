@@ -1,0 +1,17 @@
+[{
+    "title": "影院热映",
+    "tourl": "/move"
+  },
+  {
+    "title": "欧美新碟榜",
+    "tourl": "/radio"
+  },
+  {
+    "title": "注册账号",
+    "tourl": "/register"
+  },
+  {
+    "title": "登陆豆瓣",
+    "tourl": "/login"
+  }
+]

@@ -1,10 +1,21 @@
 <template>
   <div class="nava">
-    <router-link to="/move">影院热映</router-link>
+    <router-link :to="tourl">{{title}}</router-link>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    tourl: {
+      type: String,
+      required: true
+    }
+  }
+};
 </script>
 <style scoped>
 a {
@@ -16,6 +27,6 @@ a {
   height: 0.45rem;
   line-height: 0.45rem;
   background-color: #f6f6f6;
-  margin-bottom: 0.04rem;
+  margin-bottom: 0.05rem;
 }
 </style>

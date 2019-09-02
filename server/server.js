@@ -15,7 +15,6 @@ var dbCollection = mongoose.model("vips", {
     email: String,
     pwd: String,
     uname: String
-
 })
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');

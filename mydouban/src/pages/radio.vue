@@ -10,21 +10,23 @@
     </div>
     <qingDen></qingDen>
     <div>
-      <radiolist></radiolist>
-      <radiolist></radiolist>
+      <radiolist v-for="count in 7" :key="count"></radiolist>
     </div>
     <h4>显示更多广播</h4>
+    <foot></foot>
   </div>
 </template>
 <script>
 import top from "../components/header/top";
 import qingDen from "../components/qingDen";
 import radiolist from "../components/radio/radiolist";
+import foot from "../components/foot";
 export default {
   components: {
     top,
     qingDen,
-    radiolist
+    radiolist,
+    foot
   }
 };
 </script>
@@ -68,5 +70,11 @@ p {
   border-radius: 0.04rem;
   font-size: 0.11rem;
   color: #42bd56;
+}
+h4 {
+  font-size: 0.14rem;
+  color: #42bd56;
+  text-align: center;
+  margin-top: 0.35rem;
 }
 </style>
