@@ -1,0 +1,73 @@
+[{
+    "tit": "电影",
+    "jieshi": "影院热映",
+    "col": "#0e78e6",
+    "href": "/move"
+  },
+  {
+    "tit": "电视",
+    "jieshi": "正在热播",
+    "col": "#6b59d6",
+    "href": "/home"
+  },
+  {
+    "tit": "图书",
+    "jieshi": "畅销排行",
+    "col": "#966b51",
+    "href": "/book"
+  },
+  {
+    "tit": "同城",
+    "jieshi": "周末活动",
+    "col": "#e6467e",
+    "href": "/home"
+  },
+  {
+    "tit": "小组",
+    "jieshi": "志趣相投",
+    "col": "#2cb9cd",
+    "href": "/group"
+  },
+  {
+    "tit": "音乐",
+    "jieshi": "新碟榜",
+    "col": "#f27f0f",
+    "href": "/home"
+  },
+  {
+    "tit": "阅读",
+    "jieshi": "电子书",
+    "col": "#9d755c",
+    "href": "/home"
+  },
+  {
+    "tit": "游戏",
+    "jieshi": "虚拟世界",
+    "col": "#5270c3",
+    "href": "/home"
+  },
+  {
+    "tit": "应用",
+    "jieshi": "玩手机",
+    "col": "#4c61da",
+    "href": "/home"
+  },
+  {
+    "tit": "东西",
+    "jieshi": "心爱之物",
+    "col": "#df5b43",
+    "href": "/home"
+  },
+  {
+    "tit": "FM",
+    "jieshi": "红心歌单",
+    "col": "#2fcaa1",
+    "href": "/home"
+  },
+  {
+    "tit": "市集",
+    "jieshi": "购买原创",
+    "col": "#33b849",
+    "href": "/home"
+  }
+]

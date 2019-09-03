@@ -1,16 +1,35 @@
 <template>
   <div class="tglist">
     <div>
-      <h3>电影</h3>
-      <p>影院热映</p>
+      <router-link :to="ahref" :style="{color:col}">{{tit}}</router-link>
+      <p>{{jieshi}}</p>
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  props: {
+    tit: {
+      type: String,
+      required: true
+    },
+    jieshi: {
+      type: String,
+      required: true
+    },
+    col: {
+      type: String,
+      required: true
+    },
+    ahref: {
+      type: String,
+      required: true
+    }
+  }
+};
 </script>
 <style scoped>
-h3 {
+a {
   font-size: 0.2rem;
   font-weight: 300;
   color: #2384e8;

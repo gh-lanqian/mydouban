@@ -1,0 +1,69 @@
+[{
+    "title": "经典",
+    "href": "https://m.douban.com/movie/classic"
+  },
+  {
+    "title": "冷门佳片",
+    "href": "https://m.douban.com/movie/underrated"
+  },
+  {
+    "title": "豆瓣高分",
+    "href": "https://m.douban.com/movie/doubantop"
+  },
+  {
+    "title": "动作",
+    "href": "https://m.douban.com/movie/action"
+  },
+  {
+    "title": "喜剧",
+    "href": "https://m.douban.com/movie/comedy"
+  },
+  {
+    "title": "爱情",
+    "href": "https://m.douban.com/movie/love"
+  },
+  {
+    "title": "悬疑",
+    "href": "https://m.douban.com/movie/mystery"
+  },
+  {
+    "title": "恐怖",
+    "href": "https://m.douban.com/movie/horror"
+  },
+  {
+    "title": "科幻",
+    "href": "https://m.douban.com/movie/scifi"
+  },
+  {
+    "title": "治愈",
+    "href": "https://m.douban.com/movie/sweet"
+  },
+  {
+    "title": "文艺",
+    "href": "https://m.douban.com/movie/artfilm"
+  },
+  {
+    "title": "成长",
+    "href": "https://m.douban.com/movie/youth"
+  },
+  {
+    "title": "动画",
+    "href": "https://m.douban.com/movie/animation"
+  },
+  {
+    "title": "华语",
+    "href": "https://m.douban.com/movie/chinese"
+  },
+  {
+    "title": "欧美",
+    "href": "https://m.douban.com/movie/western"
+  },
+  {
+    "title": "韩国",
+    "href": "https://m.douban.com/movie/korean"
+  },
+  {
+    "title": "日本",
+    "href": "https://m.douban.com/movie/japanese"
+  }
+]
