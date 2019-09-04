@@ -4,7 +4,8 @@
     <div class="hmone">
       <nava v-for="(v,i) in arr" :key="i" :title="v.title" :tourl="v.tourl"></nava>
     </div>
-    <div class="hmtwo">
+    <img src="../../static/img/1.gif" v-if="arra.length<=0" class="xiaoLan" />
+    <div class="hmtwo" v-else>
       <hmlist
         v-for="(v,i) in arra"
         :key="i"
@@ -13,6 +14,7 @@
         :lf="v.category_name"
         :rt="v.tags"
         :cont="conts[i]"
+        :id="v.id"
       ></hmlist>
     </div>
   </div>
@@ -29,11 +31,13 @@ export default {
   },
   data() {
     return {
-      arr: [],
-      arra: []
+      arr: []
     };
   },
   computed: {
+    arra() {
+      return this.$store.state.arra;
+    }, //使用vuex  one
     conts() {
       var data = [];
       for (var i in this.arra) {
@@ -43,17 +47,12 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch("actionfun2"); //使用vuex two
     this.axios({
       url: "/nava",
       method: "get"
     }).then(ok => {
       this.arr = ok.data;
-    });
-    this.axios({
-      url: "/shouye",
-      method: "get"
-    }).then(ok => {
-      this.arra = ok.data;
     });
   }
 };

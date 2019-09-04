@@ -1,39 +1,22 @@
 <template>
   <div>
-    <p>
-      <span>{{outarr[0].a}}</span>
-      <a href="#">更多</a>
-    </p>
-    <slot></slot>
     <div class="boxa">
       <div class="listdiv">
-        <insilder
-          v-for="(v,i) in outarr1"
-          :key="i"
-          :imgurl="v.images.small"
-          :title="v.title"
-          :average="v.rating.average"
-          :id="v.id"
-        ></insilder>
+        <ind v-for="(v,i) in outarr[0].casts" :key="i" :imgurl="v.avatars.small" :title="v.name"></ind>
       </div>
     </div>
   </div>
 </template>
 <script>
-import insilder from "./insilder";
+import ind from "./ind";
 export default {
   components: {
-    insilder
+    ind
   },
   props: {
     outarr: {
       type: Array,
       required: true
-    }
-  },
-  computed: {
-    outarr1() {
-      return this.outarr.splice(1);
     }
   }
 };
@@ -59,7 +42,7 @@ a {
 .listdiv {
   display: flex;
   flex-wrap: nowrap;
-  width: 92%;
+  width: 96%;
   margin: 0 auto;
   overflow: auto;
 }

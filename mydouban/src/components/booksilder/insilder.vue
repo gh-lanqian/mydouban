@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link :to="{name:'moveDescription',params:{id:id}}">
+    <router-link :to="{name:'bookDescription',params:{id:id}}">
       <div class="aaa">
         <img :src="imgurl" :alt="title" />
       </div>

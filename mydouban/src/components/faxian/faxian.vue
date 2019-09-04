@@ -5,20 +5,7 @@
 </template>
 <script>
 export default {
-  props: {
-    ahref: {
-      type: String,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    yanse: {
-      type: String,
-      required: true
-    }
-  },
+  props: ["ahref", "title", "yanse"],
   created() {}
 };
 </script>

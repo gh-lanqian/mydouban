@@ -69,7 +69,7 @@ export default {
         param.append("email", this.emails);
         param.append("pwd", this.pwds);
         this.axios({
-          url: "http://10.35.162.160:3000/login",
+          url: "/apis/login",
           method: "post",
           data: param
         }).then(

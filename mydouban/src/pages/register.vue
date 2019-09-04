@@ -67,7 +67,7 @@ export default {
         param.append("pwd", this.pwd);
         param.append("uname", this.uname);
         this.axios({
-          url: "http://10.35.162.160:3000/post",
+          url: "/apis/post",
           method: "post",
           data: param
         }).then(

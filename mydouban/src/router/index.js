@@ -10,6 +10,7 @@ import book from '../pages/book'
 import group from '../pages/group'
 import register from '../pages/register'
 import bookDescription from '../pages/bookdescription'
+import shouYeDes from '../pages/shouYeDes'
 
 Vue.use(Router)
 
@@ -30,7 +31,7 @@ export default new Router({
       component: move
     },
     {
-      path: '/movedescription',
+      path: '/movedescription/:id',
       name: 'moveDescription',
       component: moveDescription
     },
@@ -60,9 +61,14 @@ export default new Router({
       component: register
     },
     {
-      path: '/bookdescription',
+      path: '/bookdescription/:id',
       name: 'bookDescription',
       component: bookDescription
+    },
+    {
+      path: '/shouyedes/:id',
+      name: 'shouYeDes',
+      component: shouYeDes
     },
     {
       path: "/*",

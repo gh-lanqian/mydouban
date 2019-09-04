@@ -47,4 +47,7 @@ ol {
 img {
   border: none;
 }
+.xiaoLan {
+  margin-left: 1rem;
+}
 </style>

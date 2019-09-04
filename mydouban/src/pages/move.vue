@@ -1,22 +1,26 @@
 <template>
   <div>
     <top></top>
-    <div>
-      <outsilder :outarr="arra"></outsilder>
-      <outsilder :outarr="arrb"></outsilder>
-      <outsilder :outarr="arrc"></outsilder>
-    </div>
-    <p>
-      <span>发现好电影</span>
-      <a href="#">更多</a>
-    </p>
-    <div class="faz">
-      <div class="fa">
-        <faxian v-for="(v,i) in farr1" :key="i" :ahref="v.href" :title="v.title" :yanse="v.color"></faxian>
+    <img src="../../static/img/1.gif" v-if="arra.length<=0" class="xiaoLan" />
+
+    <div v-else>
+      <div>
+        <outsilder :outarr="arra"></outsilder>
+        <outsilder :outarr="arrb"></outsilder>
+        <outsilder :outarr="arrc"></outsilder>
       </div>
+      <p>
+        <span>发现好电影</span>
+        <a href="#">更多</a>
+      </p>
+      <div class="faz">
+        <div class="fa">
+          <faxian v-for="(v,i) in farr1" :key="i" :ahref="v.href" :title="v.title" :yanse="v.color"></faxian>
+        </div>
+      </div>
+      <botz :bta="botarr"></botz>
+      <foot></foot>
     </div>
-    <botz :bta="botarr"></botz>
-    <foot></foot>
   </div>
 </template>
 <script>
@@ -35,18 +39,12 @@ export default {
   },
   data() {
     return {
-      arr: [],
       farr: [],
       botarr: []
     };
   },
   created() {
-    this.axios({
-      url: "/mov",
-      method: "get"
-    }).then(ok => {
-      this.arr = ok.data;
-    });
+    this.$store.dispatch("actionfun"); //使用vuex two
     this.axios({
       url: "/faxianhaodianying",
       method: "get"
@@ -61,6 +59,9 @@ export default {
     });
   },
   computed: {
+    arr() {
+      return this.$store.state.arr;
+    }, //使用vuex  one
     arra() {
       var arr1 = this.arr.filter((v, i) => {
         if (i < 11) {

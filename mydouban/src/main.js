@@ -6,7 +6,9 @@ import router from './router'
 import axios from 'axios'
 Vue.prototype.axios = axios
 require("./mock")
-
+import {
+  store
+} from './store/store'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -16,5 +18,6 @@ new Vue({
   components: {
     App
   },
-  template: '<App/>'
+  template: '<App/>',
+  store
 })

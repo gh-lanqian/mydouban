@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link class="listz" to="/bookdescription">
+    <router-link class="listz" :to="{name:'shouYeDes',params:{id:id}}">
       <div class="div1">
         <div>
           <p class="pp1">{{title}}</p>
@@ -31,6 +31,10 @@ export default {
       required: true
     },
     lf: {
+      type: String,
+      required: true
+    },
+    id: {
       type: String,
       required: true
     },

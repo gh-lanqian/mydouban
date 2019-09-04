@@ -8,37 +8,41 @@
         <span>打开</span>
       </p>
     </div>
-    <div class="bookz">
-      <h4>
-        {{arr[0].subtitle}}
-        <span>{{arr[0].binding}}</span>
-      </h4>
-
+    <div class="shouYe">
+      <h5>
+        {{arr[0].title}}
+        <span>{{arr[0].loc_name}}</span>
+      </h5>
       <div class="imgs">
-        <img :src="arr[0].images.small" alt />
+        <img :src="arr[0].image" alt />
       </div>
-      <p class="price">￥{{arr[0].price}}</p>
-
-      <span class="pub">出版日期：{{arr[0].pubdate}}</span>&nbsp; &nbsp;&nbsp;&nbsp;
-      <span class="pub">出版社：{{arr[0].publisher}}</span>
-      <p class="author">
-        作者：{{arr[0].author[0]}}
-        <br />
-        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-        {{arr[0].author[1]}}
+      <p class="ww">
+        时间：
+        <span>{{arr[0].begin_time}}</span>
+        <br />&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+        <span>{{arr[0].end_time}}</span>
       </p>
-      <p class="fanyi">翻译：{{arr[0].translator[0]}}</p>
+      <p class="ww">
+        <b>地点：</b>
+        <i>{{arr[0].address}}</i>
+      </p>
+      <p class="ww">
+        费用：
+        <span>{{arr[0].price_range}}</span>
+      </p>
+      <p class="ww">
+        类型：
+        <span>{{arr[0].category_name}}</span>
+      </p>
+      <p class="ww">
+        主题：
+        <span>{{arr[0].tags}}</span>
+      </p>
+      <p class="acti">活动详情</p>
       <p class="author_intro">
-        作者简介：
-        <span v-html="arr[0].author_intro"></span>
+        <span v-html="arr[0].content"></span>
       </p>
-      <p class="jianjie">
-        <span>简介：{{arr[0].summary}}</span>
-      </p>
-      <p class="mulu">目录 共{{arr[0].pages}}页</p>
-      <p v-html="arr[0].catalog" class="p2"></p>
     </div>
-
     <foot></foot>
   </div>
 </template>
@@ -53,7 +57,7 @@ export default {
   computed: {
     arr() {
       var id = this.$route.params.id;
-      var arr1 = this.$store.state.qarr.filter((v, i) => {
+      var arr1 = this.$store.state.arra.filter((v, i) => {
         if (id == v.id) {
           return v;
         }
@@ -64,7 +68,7 @@ export default {
 };
 </script>
 <style scoped>
-.bookz {
+.shouYe {
   width: 90%;
   margin: 0 auto;
 }
@@ -111,39 +115,45 @@ export default {
 .imgs {
   text-align: center;
 }
-.p2 {
-  white-space: pre;
-  font-size: 0.12rem;
-}
-.jianjie,
-.author,
-.pub,
-.fanyi {
-  font-size: 0.12rem;
-  margin: 0.2rem 0;
-}
-h4 span {
-  display: inline-block;
-  width: 0.3rem;
-  height: 0.2rem;
-  color: white;
-  text-align: center;
-  font-size: 0.1rem;
-  line-height: 0.2rem;
-  border-radius: 0.05rem;
-  background-color: #ff8263;
-}
+
 .author_intro {
   font-size: 0.12rem;
   margin: 0.2rem 0;
   /* white-space: pre; */
 }
-.mulu {
-  font-size: 0.16rem;
-  margin: 0.2rem 0;
+h5 span {
+  display: inline-block;
+  width: 0.3rem;
+  height: 0.18rem;
+  color: white;
+  text-align: center;
+  font-size: 0.1rem;
+  line-height: 0.18rem;
+  border-radius: 0.05rem;
+  background-color: #ff8263;
 }
-.price {
-  color: red;
+.ww {
+  font-size: 0.12rem;
+  color: #aaaaaa;
+  margin: 0.1rem 0;
+  clear: both;
+}
+.ww span {
+  color: #111111;
+}
+.ww b {
+  float: left;
+  font-weight: 300;
+}
+.ww i {
+  float: right;
+  color: #111111;
+  width: 85%;
+  font-style: normal;
+}
+.acti {
+  font-size: 0.14rem;
+  color: #007722;
   font-weight: 900;
 }
 </style>

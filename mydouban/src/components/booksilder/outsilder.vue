@@ -11,7 +11,7 @@
           v-for="(v,i) in outarr1"
           :key="i"
           :imgurl="v.images.small"
-          :title="v.title"
+          :title="v.subtitle"
           :average="v.rating.average"
           :id="v.id"
         ></insilder>

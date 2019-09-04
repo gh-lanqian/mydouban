@@ -1,37 +1,41 @@
 <template>
   <div>
     <top></top>
-    <outsilder :outarr="arra"></outsilder>
-    <outsilder :outarr="arrb"></outsilder>
-    <outsilder :outarr="arrc">
-      <div class="slota">
-        <img :src="arr[0].images.small" :alt="arr[0].subtitle" />
-        <div>
-          <p>
-            <span>{{arr[0].subtitle}}</span>
-            <span>￥{{arr[0].ebook_price}}</span>
-          </p>
-          <p>{{arr[0].title}}</p>
+    <img src="../../static/img/1.gif" v-if="qarr.length<=0" class="xiaoLan" />
+    <div v-else>
+      <outsilder :outarr="arra"></outsilder>
+      <outsilder :outarr="arrb"></outsilder>
+      <outsilder :outarr="arrc">
+        <div class="slota">
+          <img :src="qarr[0].images.small" :alt="qarr[0].subtitle" />
+          <div>
+            <p>
+              <span>{{qarr[0].subtitle}}</span>
+              <span>￥{{qarr[0].ebook_price}}</span>
+            </p>
+            <p>{{qarr[0].title}}</p>
+          </div>
+        </div>
+      </outsilder>
+      <p>
+        <span>发现好书</span>
+        <a href="#">更多</a>
+      </p>
+      <img src="../../static/img/1.gif" v-if="farr.length<=0" />
+      <div class="faz" v-else>
+        <div class="fa">
+          <faxian v-for="(v,i) in farr" :key="i" :ahref="v.href" :title="v.title" :yanse="v.color"></faxian>
         </div>
       </div>
-    </outsilder>
-    <p>
-      <span>发现好书</span>
-      <a href="#">更多</a>
-    </p>
-    <div class="faz">
-      <div class="fa">
-        <faxian v-for="(v,i) in farr" :key="i" :ahref="v.href" :title="v.title" :yanse="v.color"></faxian>
-      </div>
+      <botz :bta="botarr"></botz>
+      <foot></foot>
     </div>
-    <botz :bta="botarr"></botz>
-    <foot></foot>
   </div>
 </template>
 <script>
 import top from "../components/header/top";
 import foot from "../components/foot";
-import outsilder from "../components/silder/outsilder";
+import outsilder from "../components/booksilder/outsilder";
 import botz from "../components/more/botz";
 import faxian from "../components/faxian/faxian";
 
@@ -45,18 +49,12 @@ export default {
   },
   data() {
     return {
-      arr: [],
       farr: [],
       botarr: []
     };
   },
   created() {
-    this.axios({
-      url: "/book",
-      method: "get"
-    }).then(ok => {
-      this.arr = ok.data;
-    });
+    this.$store.dispatch("actionfun1"); //使用vuex two
     this.axios({
       url: "/goodBook",
       method: "get"
@@ -71,28 +69,31 @@ export default {
     });
   },
   computed: {
+    qarr() {
+      return this.$store.state.qarr;
+    }, //使用vuex  one
     arra() {
-      var arr1 = this.arr.filter((v, i) => {
+      var arr1 = this.qarr.filter((v, i) => {
         if (i < 11) {
-          return this.arr[i];
+          return this.qarr[i];
         }
       });
       arr1.unshift({ a: "最受关注图书 | 虚构类" });
       return arr1;
     },
     arrb() {
-      var arr1 = this.arr.filter((v, i) => {
+      var arr1 = this.qarr.filter((v, i) => {
         if (i > 10 && i < 21) {
-          return this.arr[i];
+          return this.qarr[i];
         }
       });
       arr1.unshift({ a: "最受关注图书 | 非虚构类" });
       return arr1;
     },
     arrc() {
-      var arr1 = this.arr.filter((v, i) => {
+      var arr1 = this.qarr.filter((v, i) => {
         if (i < 40 && i > 20) {
-          return this.arr[i];
+          return this.qarr[i];
         }
       });
       arr1.unshift({ a: "豆瓣纸书" });
