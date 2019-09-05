@@ -2,7 +2,7 @@
   <div>
     <p>
       <span>{{outarr[0].a}}</span>
-      <a href="#">更多</a>
+      <router-link to="/more">更多</router-link>
     </p>
     <slot></slot>
     <div class="boxa">

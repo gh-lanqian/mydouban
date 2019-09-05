@@ -31,7 +31,8 @@ export default {
   },
   data() {
     return {
-      arr: []
+      arr: [],
+      name: ""
     };
   },
   computed: {
@@ -48,20 +49,27 @@ export default {
   },
   created() {
     this.$store.dispatch("actionfun2"); //使用vuex two
-    var token = window.localStorage.getItem("token");
+
     this.axios({
       url: "/nava",
       method: "get"
     }).then(ok => {
       this.arr = ok.data;
     });
-    this.axios({
-      url: "/apis/home",
-      method: "get",
-      params: { token }
-    }).then(ok => {
-      alert(ok);
-    });
+    var token = window.localStorage.getItem("token");
+    if (token) {
+      this.axios({
+        url: "/apis/home",
+        method: "get",
+        params: { token }
+      }).then(ok => {
+        // console.log(ok);
+        this.name = ok.data.uname;
+      });
+    } else {
+      alert(请您登录后在访问);
+      this.$router.push("/login");
+    }
   }
 };
 </script>

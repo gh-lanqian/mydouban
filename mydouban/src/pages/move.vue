@@ -15,7 +15,15 @@
       </p>
       <div class="faz">
         <div class="fa">
-          <faxian v-for="(v,i) in farr1" :key="i" :ahref="v.href" :title="v.title" :yanse="v.color"></faxian>
+          <faxian
+            v-for="(v,i) in farr"
+            :key="i"
+            :ahref="v.href"
+            :title="v.title"
+            :yanse="v.color"
+            v-if="!v.line"
+          ></faxian>
+          <br v-else />
         </div>
       </div>
       <botz :bta="botarr"></botz>
@@ -82,20 +90,16 @@ export default {
     },
     arrc() {
       var arr1 = this.arr.filter((v, i) => {
-        if (i < 40 && i > 20) {
+        if (i < 31 && i > 20) {
           return this.arr[i];
         }
       });
       arr1.unshift({ a: "新片速递" });
       return arr1;
-    },
-    farr1() {
-      var ifarr = this.farr.slice(0, 3);
-
-      return ifarr;
     }
-    // farr2() {
-    //   var ifarr = this.farr.slice(5, 8);
+    // farr1() {
+    //   var ifarr = this.farr.slice(0, 3);
+
     //   return ifarr;
     // }
   }
@@ -120,8 +124,7 @@ a {
   width: 100%;
 }
 .fa {
-  display: flex;
-  flex-wrap: nowrap;
+  white-space: nowrap;
   overflow-x: auto;
 }
 </style>

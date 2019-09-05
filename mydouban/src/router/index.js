@@ -11,10 +11,11 @@ import group from '../pages/group'
 import register from '../pages/register'
 import bookDescription from '../pages/bookdescription'
 import shouYeDes from '../pages/shouYeDes'
+import more from '../pages/more'
 
 Vue.use(Router)
-
 export default new Router({
+
   routes: [{
       path: '/home',
       name: 'home',
@@ -69,6 +70,11 @@ export default new Router({
       path: '/shouyedes/:id',
       name: 'shouYeDes',
       component: shouYeDes
+    },
+    {
+      path: '/more/',
+      name: 'more',
+      component: more
     },
     {
       path: "/*",

@@ -142,6 +142,12 @@ app.get("/home", function (req, res) {
     jwt.verify(token, mi, function (err, data) {
 
         if (data.loginok == true) {
+            // res.send({
+            //     mes: "登陆过",
+            //     status: 200,
+            //     linkid: 8,
+            //     uname: data.email
+            // })
             mongoose.connect("mongodb://10.35.162.160:27017/douban", {
                 useNewUrlParser: true
             }, function (err) {
@@ -152,11 +158,12 @@ app.get("/home", function (req, res) {
                     dbCollection.find({
                         email: data.email
                     }).then((ok) => {
+                        console.log(ok)
                         res.send({
                             mes: "登陆过",
                             status: 200,
                             linkid: 8,
-                            uname: ok.uname
+                            uname: ok[0].uname
                         })
                     })
                 }

@@ -24,7 +24,15 @@
       <img src="../../static/img/1.gif" v-if="farr.length<=0" />
       <div class="faz" v-else>
         <div class="fa">
-          <faxian v-for="(v,i) in farr" :key="i" :ahref="v.href" :title="v.title" :yanse="v.color"></faxian>
+          <faxian
+            v-for="(v,i) in farr"
+            :key="i"
+            :ahref="v.href"
+            :title="v.title"
+            :yanse="v.color"
+            v-if="!v.line"
+          ></faxian>
+          <br v-else />
         </div>
       </div>
       <botz :bta="botarr"></botz>
@@ -153,8 +161,7 @@ p:nth-of-type(2) {
   width: 100%;
 }
 .fa {
-  display: flex;
-  flex-wrap: nowrap;
+  white-space: nowrap;
   overflow-x: auto;
 }
 </style>

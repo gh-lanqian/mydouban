@@ -12,7 +12,6 @@ export default {
 <style scoped>
 .faxian > a {
   display: table;
-  white-space: nowrap;
   height: 0.5rem;
   line-height: 0.5rem;
   text-align: center;
@@ -23,5 +22,8 @@ export default {
   letter-spacing: 0.02rem;
   padding: 0 0.2rem;
   margin-left: 0.2rem;
+}
+.faxian {
+  display: inline-block;
 }
 </style>

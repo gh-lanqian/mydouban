@@ -119,9 +119,9 @@ export default {
 .author_intro {
   font-size: 0.12rem;
   margin: 0.2rem 0;
-  overflow: hidden;
-
-  /* white-space: pre; */
+}
+.author_intro span {
+  word-break: break-all;
 }
 
 h5 span {

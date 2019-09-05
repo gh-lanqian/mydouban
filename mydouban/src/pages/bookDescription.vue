@@ -136,7 +136,6 @@ h4 span {
 .author_intro {
   font-size: 0.12rem;
   margin: 0.2rem 0;
-  /* white-space: pre; */
 }
 .mulu {
   font-size: 0.16rem;
