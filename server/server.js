@@ -133,5 +133,42 @@ app.post("/login", uE, function (req, res) {
         }
     })
 })
+//首页路由
+app.get("/home", function (req, res) {
 
+    //解密token
+    var token = req.query.token
+    var mi = "adjiewiwg456uh453jkljk46trhdfwe"
+    jwt.verify(token, mi, function (err, data) {
+
+        if (data.loginok == true) {
+            mongoose.connect("mongodb://10.35.162.160:27017/douban", {
+                useNewUrlParser: true
+            }, function (err) {
+                if (err) {
+                    console.log("链接失败")
+                } else {
+                    console.log("链接成功")
+                    dbCollection.find({
+                        email: data.email
+                    }).then((ok) => {
+                        res.send({
+                            mes: "登陆过",
+                            status: 200,
+                            linkid: 8,
+                            uname: ok.uname
+                        })
+                    })
+                }
+            })
+        } else {
+            res.send({
+                mes: "未登录",
+                status: 200,
+                linkid: 9
+            })
+        }
+    })
+
+})
 app.listen(3000);

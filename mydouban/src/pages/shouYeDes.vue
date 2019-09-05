@@ -119,8 +119,11 @@ export default {
 .author_intro {
   font-size: 0.12rem;
   margin: 0.2rem 0;
+  overflow: hidden;
+
   /* white-space: pre; */
 }
+
 h5 span {
   display: inline-block;
   width: 0.3rem;

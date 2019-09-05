@@ -48,11 +48,19 @@ export default {
   },
   created() {
     this.$store.dispatch("actionfun2"); //使用vuex two
+    var token = window.localStorage.getItem("token");
     this.axios({
       url: "/nava",
       method: "get"
     }).then(ok => {
       this.arr = ok.data;
+    });
+    this.axios({
+      url: "/apis/home",
+      method: "get",
+      params: { token }
+    }).then(ok => {
+      alert(ok);
     });
   }
 };

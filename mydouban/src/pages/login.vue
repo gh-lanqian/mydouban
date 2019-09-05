@@ -74,10 +74,8 @@ export default {
           data: param
         }).then(
           ok => {
-            console.log(ok);
             if (ok.data.linkid == 5) {
               alert("登录成功");
-              console.log(ok.data.token);
               //储存后台返回的token
               window.localStorage.setItem("token", ok.data.token);
               this.$router.push("/home");

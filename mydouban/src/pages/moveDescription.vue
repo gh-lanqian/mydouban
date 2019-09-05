@@ -13,7 +13,7 @@
       <div>
         <div class="lt">
           <p>
-            <b>☆☆☆☆☆</b>
+            <el-rate v-model="value" disabled text-color="#aaaaaa" score-template="{value}"></el-rate>
             <span>{{arr[0].rating.average}}</span>
             <i>{{arr[0].collect_count}}人评价</i>
           </p>
@@ -31,8 +31,15 @@
       </div>
       <h5>{{arr[0].title}}的简介</h5>
       <p class="jianjie">
-        展览“奇妙的不确定性”旨在强调当代艺术中某些特定叙事的重要性：它们聚焦于具有隐晦、不确定性和不可能性的现象，并立足于人类学方面的考量，对这些现象的独特社会文化语境及其在具体情境中的意义进行剖析。充斥着黑暗、混乱和恐惧的领域是构成人类现实的一部分，而艺术家的角色便是将其中所隐匿的叙事和经验揭示出来。
-        <span>&lt;展开&gt;</span>
+        20世纪40年代末，小有成就的青年银行家安迪（蒂姆·罗宾斯 Tim Robbins 饰）因涉嫌杀害妻子及她的情人而锒铛入狱。在这座名为肖申克的监狱内，希望似乎虚无缥缈，终身监禁的惩罚无疑注定了安迪接下来灰暗绝望的人生。未过多久，安迪尝试接近囚犯中颇有声望的瑞德（摩根·弗里曼 Morgan Freeman 饰），
+        <span
+          class="gengDuo"
+          v-if="bool"
+          @click="fun()"
+        >&lt;展开&gt;</span>
+        <span
+          v-else
+        >请求对方帮自己搞来小锤子。以此为契机，二人逐渐熟稔，安迪也仿佛在鱼龙混杂、罪恶横生、黑白混淆的牢狱中找到属于自己的求生之道。他利用自身的专业知识，帮助监狱管理层逃税、洗黑钱，同时凭借与瑞德的交往在犯人中间也渐渐受到礼遇。表面看来，他已如瑞德那样对那堵高墙从憎恨转变为处之泰然，但是对自由的渴望仍促使他朝着心中的希望和目标前进。而关于其罪行的真相，似乎更使这一切朝前推进了一步……</span>
       </p>
       <h5>查看更多相关分类</h5>
       <p class="more">
@@ -78,6 +85,7 @@ export default {
   },
   data() {
     return {
+      bool: true,
       titarr: [
         { title: "大家为什么对国产片这么苛刻?", num: 35 },
         { title: "有没有人喜欢凯凯王版的汤川学?", num: 15 },
@@ -89,6 +97,11 @@ export default {
       ]
     };
   },
+  methods: {
+    fun() {
+      this.bool = !this.bool;
+    }
+  },
   computed: {
     arr() {
       var id = this.$route.params.id;
@@ -98,6 +111,9 @@ export default {
         }
       });
       return arr1;
+    },
+    value() {
+      return this.arr[0].rating.average / 2;
     }
   }
 };
@@ -154,10 +170,7 @@ export default {
   float: left;
   width: 58%;
 }
-.lt b {
-  font-size: 0.12rem;
-  color: yellow;
-}
+
 .lt span {
   font-size: 0.12rem;
   color: #aaaaaa;
@@ -203,7 +216,7 @@ h5 {
   color: #666;
   letter-spacing: 0.01rem;
 }
-.jianjie span {
+.gengDuo {
   color: #42bd56;
 }
 .more span {
