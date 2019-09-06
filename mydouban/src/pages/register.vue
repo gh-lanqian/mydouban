@@ -4,7 +4,10 @@
     <div class="regbox">
       <inp :txt="data[0]" @mite="mite1"></inp>
       <inp :txt="data[1]" @mite="mite2">
-        <span @click="fun()" :class="bool?'red':''">eye</span>
+        <span>
+          <img @click="fun()" src="../../static/img/m.png" v-if="!bool" />
+          <img @click="fun()" src="../../static/img/n.png" v-else />
+        </span>
       </inp>
       <inp :txt="data[2]" @mite="mite3"></inp>
       <div @click="sub()">
@@ -118,6 +121,11 @@ span {
   height: 0.45rem;
   line-height: 0.45rem;
   vertical-align: middle;
+}
+span img {
+  width: 0.3rem;
+  height: 0.25rem;
+  margin-top: 0.1rem;
 }
 .regXieYi {
   font-size: 0.12rem;

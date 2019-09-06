@@ -7,7 +7,10 @@
     <div class="outbox">
       <inp :txt="data[0]" @mite="mitea"></inp>
       <inp :txt="data[1]" v-model="bool" @mite="miteb">
-        <span @click="fun()" :class="bool?'red':''" id="a">eye</span>
+        <span id="a">
+          <img @click="fun()" src="../../static/img/m.png" v-if="!bool" />
+          <img @click="fun()" src="../../static/img/n.png" v-else />
+        </span>
       </inp>
       <div @click="ulogin()">
         <btn :text="data[2]" :bg="bg"></btn>
@@ -147,5 +150,10 @@ a {
 }
 .linkdiv {
   margin-left: 0.7rem;
+}
+#a img {
+  width: 0.3rem;
+  height: 0.25rem;
+  margin-top: 0.1rem;
 }
 </style>
