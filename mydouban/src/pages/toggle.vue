@@ -2,7 +2,13 @@
   <div class="toggle">
     <p class="top">
       <span class="b" @click="go()">关闭</span>
-      <input type="text" @focus="fun()" :class="bool?'inpa':'inpb'" @blur="fun1()" />
+      <input
+        type="text"
+        @focus="fun()"
+        :class="bool?'inpa':'inpb'"
+        @blur="fun1()"
+        @keyup.enter="search()"
+      />
     </p>
     <div>
       <tglist
@@ -47,6 +53,9 @@ export default {
     },
     fun1() {
       this.bool = false;
+    },
+    search() {
+      this.$router.push("/search");
     }
   },
   created() {

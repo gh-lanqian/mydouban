@@ -48,6 +48,6 @@ img {
   border: none;
 }
 .xiaoLan {
-  margin-left: 1rem;
+  margin-left: 1.2rem;
 }
 </style>

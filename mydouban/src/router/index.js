@@ -12,6 +12,7 @@ import register from '../pages/register'
 import bookDescription from '../pages/bookdescription'
 import shouYeDes from '../pages/shouYeDes'
 import more from '../pages/more'
+import search from '../pages/search'
 
 Vue.use(Router)
 export default new Router({
@@ -19,7 +20,16 @@ export default new Router({
   routes: [{
       path: '/home',
       name: 'home',
-      component: home
+      component: home,
+      beforeEnter: (to, from, next) => {
+        var token = window.localStorage.getItem("token");
+        if (!token) {
+          alert("没有登录");
+          next("/login")
+        } else {
+          next()
+        }
+      }
     },
     {
       path: '/login',
@@ -29,7 +39,16 @@ export default new Router({
     {
       path: '/move',
       name: 'move',
-      component: move
+      component: move,
+      beforeEnter: (to, from, next) => {
+        var token = window.localStorage.getItem("token");
+        if (!token) {
+          alert("没有登录");
+          next("/login")
+        } else {
+          next()
+        }
+      }
     },
     {
       path: '/movedescription/:id',
@@ -39,22 +58,58 @@ export default new Router({
     {
       path: '/toggle',
       name: 'toggle',
-      component: toggle
+      component: toggle,
+      beforeEnter: (to, from, next) => {
+        var token = window.localStorage.getItem("token");
+        if (!token) {
+          alert("没有登录");
+          next("/login")
+        } else {
+          next()
+        }
+      }
     },
     {
       path: '/radio',
       name: 'radio',
-      component: radio
+      component: radio,
+      beforeEnter: (to, from, next) => {
+        var token = window.localStorage.getItem("token");
+        if (!token) {
+          alert("没有登录");
+          next("/login")
+        } else {
+          next()
+        }
+      }
     },
     {
       path: '/book',
       name: 'book',
-      component: book
+      component: book,
+      beforeEnter: (to, from, next) => {
+        var token = window.localStorage.getItem("token");
+        if (!token) {
+          alert("没有登录");
+          next("/login")
+        } else {
+          next()
+        }
+      }
     },
     {
       path: '/group',
       name: 'group',
-      component: group
+      component: group,
+      beforeEnter: (to, from, next) => {
+        var token = window.localStorage.getItem("token");
+        if (!token) {
+          alert("没有登录");
+          next("/login")
+        } else {
+          next()
+        }
+      }
     },
     {
       path: '/register',
@@ -72,9 +127,14 @@ export default new Router({
       component: shouYeDes
     },
     {
-      path: '/more/',
+      path: '/more',
       name: 'more',
       component: more
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: search
     },
     {
       path: "/*",

@@ -10,9 +10,12 @@
     </div>
     <qingDen></qingDen>
     <div>
-      <radiolist v-for="count in 7" :key="count"></radiolist>
+      <radiolist v-for="count in 5" :key="count"></radiolist>
     </div>
-    <h4>显示更多广播</h4>
+    <h4 @click="fun()" v-if="!bool">显示更多广播</h4>
+    <div v-else>
+      <radiolist v-for="count in 4" :key="count"></radiolist>
+    </div>
     <foot></foot>
   </div>
 </template>
@@ -27,6 +30,16 @@ export default {
     qingDen,
     radiolist,
     foot
+  },
+  data() {
+    return {
+      bool: false
+    };
+  },
+  methods: {
+    fun() {
+      this.bool = !this.bool;
+    }
   }
 };
 </script>
