@@ -63,36 +63,39 @@ export default {
       this.pwds = val;
     },
     ulogin() {
-      if (this.emails == "" || this.pwds == "") {
-        alert("输入不能为空");
-      } else {
-        this.data[2].title = "正在登录...";
-        this.bg = true;
-        let param = new URLSearchParams();
-        param.append("email", this.emails);
-        param.append("pwd", this.pwds);
-        this.axios({
-          url: "/apis/login",
-          method: "post",
-          data: param
-        }).then(
-          ok => {
-            if (ok.data.linkid == 5) {
-              alert("登录成功");
-              //储存后台返回的token
-              window.localStorage.setItem("token", ok.data.token);
-              this.$router.push("/home");
-            } else if (ok.data.linkid == 4) {
-              alert("登录失败");
-            } else if (ok.data.linkid == 6) {
-              alert("连接超时，请稍后再试");
-            }
-          },
-          err => {}
-        );
-      }
+      this.$router.push("/home");
+
+      // if (this.emails == "" || this.pwds == "") {
+      //   alert("输入不能为空");
+      // } else {
+      //   this.data[2].title = "正在登录...";
+      //   this.bg = true;
+      //   let param = new URLSearchParams();
+      //   param.append("email", this.emails);
+      //   param.append("pwd", this.pwds);
+      //   this.axios({
+      //     url: "/apis/login",
+      //     method: "post",
+      //     data: param
+      //   }).then(
+      //     ok => {
+      //       if (ok.data.linkid == 5) {
+      //         alert("登录成功");
+      //         //储存后台返回的token
+      //         window.localStorage.setItem("token", ok.data.token);
+      //         this.$router.push("/home");
+      //       } else if (ok.data.linkid == 4) {
+      //         alert("登录失败");
+      //       } else if (ok.data.linkid == 6) {
+      //         alert("连接超时，请稍后再试");
+      //       }
+      //     },
+      //     err => {}
+      //   );
+      // }
     }
   },
+
   mounted() {
     document.getElementsByClassName("btn")[0].style.backgroundColor = "#17aa52";
     document.getElementsByClassName("inpa")[1].style.cssText = `
@@ -121,14 +124,16 @@ export default {
   top: 0.15rem;
 }
 #a {
-  display: inline-block;
+  background-color: white;
   box-sizing: border-box;
   border-right: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
-  width: 0.35rem;
+  width: 0.395rem;
   height: 0.45rem;
   vertical-align: middle;
   line-height: 0.45rem;
+  float: right;
+  margin-right: 0.025rem;
 }
 b {
   font-size: 0.15rem;

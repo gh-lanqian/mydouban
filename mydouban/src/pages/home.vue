@@ -56,20 +56,20 @@ export default {
     }).then(ok => {
       this.arr = ok.data;
     });
-    var token = window.localStorage.getItem("token");
-    if (token) {
-      this.axios({
-        url: "/apis/home",
-        method: "get",
-        params: { token }
-      }).then(ok => {
-        // console.log(ok);
-        this.name = ok.data.uname;
-      });
-    } else {
-      alert(请您登录后在访问);
-      this.$router.push("/login");
-    }
+    // var token = window.localStorage.getItem("token");
+    // if (token) {
+    //   this.axios({
+    //     url: "/apis/home",
+    //     method: "get",
+    //     params: { token }
+    //   }).then(ok => {
+    //     // console.log(ok);
+    //     this.name = ok.data.uname;
+    //   });
+    // } else {
+    //   alert(请您登录后在访问);
+    //   this.$router.push("/login");
+    // }
   }
 };
 </script>

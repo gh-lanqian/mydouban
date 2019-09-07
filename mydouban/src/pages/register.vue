@@ -60,35 +60,37 @@ export default {
       this.uname = val;
     },
     sub() {
-      if (this.email == "" || this.pwd == "" || this.uname == "") {
-        alert("输入不能为空");
-      } else {
-        this.data[3].title = "正在提交...";
-        this.bg = true;
-        let param = new URLSearchParams();
-        param.append("email", this.email);
-        param.append("pwd", this.pwd);
-        param.append("uname", this.uname);
-        this.axios({
-          url: "/apis/post",
-          method: "post",
-          data: param
-        }).then(
-          ok => {
-            if (ok.data.linkid == 1) {
-              alert("注册成功");
-              this.$router.push("/login");
-            } else if (ok.data.linkid == 2) {
-              alert("该邮箱已注册过");
-            } else if (ok.data.linkid == 0) {
-              alert("注册失败");
-            } else if (ok.data.linkid == 3) {
-              alert("连接超时，请稍后再试");
-            }
-          },
-          err => {}
-        );
-      }
+      this.$router.push("/login");
+
+      // if (this.email == "" || this.pwd == "" || this.uname == "") {
+      //   alert("输入不能为空");
+      // } else {
+      //   this.data[3].title = "正在提交...";
+      //   this.bg = true;
+      //   let param = new URLSearchParams();
+      //   param.append("email", this.email);
+      //   param.append("pwd", this.pwd);
+      //   param.append("uname", this.uname);
+      //   this.axios({
+      //     url: "/apis/post",
+      //     method: "post",
+      //     data: param
+      //   }).then(
+      //     ok => {
+      //       if (ok.data.linkid == 1) {
+      //         alert("注册成功");
+      //         this.$router.push("/login");
+      //       } else if (ok.data.linkid == 2) {
+      //         alert("该邮箱已注册过");
+      //       } else if (ok.data.linkid == 0) {
+      //         alert("注册失败");
+      //       } else if (ok.data.linkid == 3) {
+      //         alert("连接超时，请稍后再试");
+      //       }
+      //     },
+      //     err => {}
+      //   );
+      // }
     }
   },
   mounted() {
@@ -114,10 +116,12 @@ export default {
   padding: 0 0.14rem;
 }
 span {
-  display: inline-block;
+  background-color: white;
+  float: right;
+  margin-right: 0.025rem;
   box-sizing: border-box;
   border-right: 1px solid #cccccc;
-  width: 0.35rem;
+  width: 0.395rem;
   height: 0.45rem;
   line-height: 0.45rem;
   vertical-align: middle;

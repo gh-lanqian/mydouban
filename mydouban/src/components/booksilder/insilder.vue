@@ -8,8 +8,14 @@
         <p class="tit">{{title}}</p>
       </div>
       <p class="good">
-        <el-rate v-model="value" disabled text-color="#aaaaaa" score-template="{value}"></el-rate>
-        <span>{{average}}</span>
+        <el-rate
+          v-model="value"
+          disabled
+          text-color="#aaaaaa"
+          show-text
+          :texts="texts"
+          score-template="{value}"
+        ></el-rate>
       </p>
     </router-link>
   </div>
@@ -38,6 +44,18 @@ export default {
     value() {
       return this.average / 2;
     }
+  },
+
+  data() {
+    return {
+      texts: [
+        this.average,
+        this.average,
+        this.average,
+        this.average,
+        this.average
+      ]
+    };
   }
 };
 </script>

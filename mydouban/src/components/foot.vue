@@ -24,6 +24,7 @@ export default {};
 img {
   margin: 0 0.15rem 0 0.85rem;
   width: 0.5rem;
+  height: 0.5rem;
 }
 .foot > div p:nth-of-type(1) {
   font-size: 0.2rem;

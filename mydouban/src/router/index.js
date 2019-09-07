@@ -21,15 +21,15 @@ export default new Router({
       path: '/home',
       name: 'home',
       component: home,
-      beforeEnter: (to, from, next) => {
-        var token = window.localStorage.getItem("token");
-        if (!token) {
-          alert("没有登录");
-          next("/login")
-        } else {
-          next()
-        }
-      }
+      // beforeEnter: (to, from, next) => {
+      //   var token = window.localStorage.getItem("token");
+      //   if (!token) {
+      //     alert("没有登录");
+      //     next("/login")
+      //   } else {
+      //     next()
+      //   }
+      // }
     },
     {
       path: '/login',
@@ -40,15 +40,15 @@ export default new Router({
       path: '/move',
       name: 'move',
       component: move,
-      beforeEnter: (to, from, next) => {
-        var token = window.localStorage.getItem("token");
-        if (!token) {
-          alert("没有登录");
-          next("/login")
-        } else {
-          next()
-        }
-      }
+      // beforeEnter: (to, from, next) => {
+      //   var token = window.localStorage.getItem("token");
+      //   if (!token) {
+      //     alert("没有登录");
+      //     next("/login")
+      //   } else {
+      //     next()
+      //   }
+      // }
     },
     {
       path: '/movedescription/:id',
@@ -59,57 +59,57 @@ export default new Router({
       path: '/toggle',
       name: 'toggle',
       component: toggle,
-      beforeEnter: (to, from, next) => {
-        var token = window.localStorage.getItem("token");
-        if (!token) {
-          alert("没有登录");
-          next("/login")
-        } else {
-          next()
-        }
-      }
+      // beforeEnter: (to, from, next) => {
+      //   var token = window.localStorage.getItem("token");
+      //   if (!token) {
+      //     alert("没有登录");
+      //     next("/login")
+      //   } else {
+      //     next()
+      //   }
+      // }
     },
     {
       path: '/radio',
       name: 'radio',
       component: radio,
-      beforeEnter: (to, from, next) => {
-        var token = window.localStorage.getItem("token");
-        if (!token) {
-          alert("没有登录");
-          next("/login")
-        } else {
-          next()
-        }
-      }
+      // beforeEnter: (to, from, next) => {
+      //   var token = window.localStorage.getItem("token");
+      //   if (!token) {
+      //     alert("没有登录");
+      //     next("/login")
+      //   } else {
+      //     next()
+      //   }
+      // }
     },
     {
       path: '/book',
       name: 'book',
       component: book,
-      beforeEnter: (to, from, next) => {
-        var token = window.localStorage.getItem("token");
-        if (!token) {
-          alert("没有登录");
-          next("/login")
-        } else {
-          next()
-        }
-      }
+      // beforeEnter: (to, from, next) => {
+      //   var token = window.localStorage.getItem("token");
+      //   if (!token) {
+      //     alert("没有登录");
+      //     next("/login")
+      //   } else {
+      //     next()
+      //   }
+      // }
     },
     {
       path: '/group',
       name: 'group',
       component: group,
-      beforeEnter: (to, from, next) => {
-        var token = window.localStorage.getItem("token");
-        if (!token) {
-          alert("没有登录");
-          next("/login")
-        } else {
-          next()
-        }
-      }
+      // beforeEnter: (to, from, next) => {
+      //   var token = window.localStorage.getItem("token");
+      //   if (!token) {
+      //     alert("没有登录");
+      //     next("/login")
+      //   } else {
+      //     next()
+      //   }
+      // }
     },
     {
       path: '/register',
